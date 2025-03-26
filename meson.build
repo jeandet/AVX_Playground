@@ -37,9 +37,9 @@ no_avx_args = [
 googleBenchmark = dependency('benchmark')
 
 xsimd = dependency('xsimd')
-
+thread_dep = dependency('threads')
 
 comparison = executable('comparison', 'src/comparison.cpp','src/loops.cpp',
-                        dependencies: [googleBenchmark, xsimd],
+                        dependencies: [googleBenchmark, xsimd, thread_dep],
                         c_args: avx_args,
                         cpp_args: avx_args)
